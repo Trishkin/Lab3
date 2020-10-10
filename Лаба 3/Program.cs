@@ -237,7 +237,10 @@ namespace Лаба_3
 
             Console.ReadKey();
 
-            
+            var anonimus = new {id = 456621, Namebook = "My live is broken", author = "Gregory Mural", age = 2014, devel = "someone", page = 108, price = 15, typeofcover= "hard"};
+            Console.WriteLine($"id: {anonimus.id}\nNamebook: {anonimus.Namebook}\nauthor: {anonimus.author}\ndevel: {anonimus.devel}\nage: {anonimus.age}\npage: {anonimus.page}\nprice: {anonimus.price}\ntypeofcover: {anonimus.typeofcover}");
+
+            Console.ReadKey();
         }
     }
 }
