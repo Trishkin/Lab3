@@ -9,21 +9,55 @@ namespace Лаба_3
 {
     class Book
     {
-        private int id = 1;
-        protected string Namebook = "Why do I live";
-        protected string author = "Dimasik";
-        public string devel = "BSTU";
-        public int age = 2020;
-        public int page = 456;
-        public int price = 105;
-        public string typeofcover = "soft";
+        private readonly int id = 1;
+        private string namebook = "Why do I live";
+        public string Namebook
+        {
+            get { return namebook; }
+            private set { namebook = value; }
+        }
+        private string author { get; set; } = "Dimasik";
+        public string Author
+        {
+            get { return author; }
+            set { author = value; }
+        }
+        private const string devel = "BSTU";
+        public string Devel
+        {
+            get { return devel; }
+            set { }
+        }
+        private int age = 2020;
+        public int Age
+        {
+            get { return age; }
+            set { age = value; }
+        }
+        private int page = 456;
+        public int Page
+        {
+            get { return page; }
+            set { page = value; }
+        }
+        private int price = 105;
+        public int Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+        private string typeofcover = "soft";
+        public string Typeofcover
+        {
+            get { return typeofcover; }
+            set { typeofcover = value; }
+        }
 
-        public Book(int id, string Namebook, string author, string devel, int age, int page, int price, string typeofcover)
+        public Book(int id, string Namebook, string author, int age, int page, int price, string typeofcover)
         {
             this.id = id;
             this.Namebook = Namebook;
             this.author = author;
-            this.devel = devel;
             this.age = age;
             this.page = page;
             this.price = price;
@@ -35,35 +69,42 @@ namespace Лаба_3
             id = 4534568;
             Namebook = "How to become more skillfull in MTG";
             author = "Dmritriy Kulikov";
-            devel = "BSTU";
             age = 2019;
             page = 342;
             price = 20;
             typeofcover = "hard";
         }
 
-        public Book(int jopa)
+        public Book(int joga)
         {
-            id = jopa;
+            id = joga;
         }
+
         public void Info()
         {
             Console.WriteLine($"id: {id}\nNamebook: {Namebook}\nauthor: {author}\ndevel: {devel}\nage: {age}\npage: {page}\nprice: {price}\ntypeofcover: {typeofcover}");
         }
 
+        public void InfoClass()
+        {
+            Console.WriteLine($"This class have fields: id, author, devel, age, page, price, typeofcover");
+        }
+
+        public void sum(ref int a, ref int b, out int c)
+        {
+            c = a + b;
+        }
         static Book()
         {
-            
+            Console.WriteLine($"First finish");
         }
+
         private Book(int yoi, int oiy)
         {
             page = yoi;
             price = oiy;
         }
-        public readonly Book()
-        {
-            int x = 7;
-        }
+
     }
     class Program
     {
@@ -75,8 +116,6 @@ namespace Лаба_3
             string b = Console.ReadLine();
             Console.Write($"Enter author: ");
             string c = Console.ReadLine();
-            Console.Write($"Enter devel: ");
-            string d = Console.ReadLine();
             Console.Write($"Enter age: ");
             int e = Convert.ToInt32(Console.ReadLine());
             Console.Write($"Enter page: ");
@@ -87,7 +126,7 @@ namespace Лаба_3
             string h = Console.ReadLine();
             Console.WriteLine();
 
-            Book book1 = new Book(a, b, c, d, e, f, g, h);
+            Book book1 = new Book(a, b, c, e, f, g, h);
             book1.Info();
             Console.WriteLine();
             Book book2 = new Book();
@@ -96,6 +135,14 @@ namespace Лаба_3
             Book book3 = new Book(1);
             book3.Info();
             Console.WriteLine();
+            book3.Author = "4546";
+
+            int x = 7;
+            int y = 8;
+            int z;
+            book3.sum(ref x,ref y,out z);
+            Console.WriteLine(z);
+            Console.ReadKey();
         }
     }
 }
